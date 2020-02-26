@@ -29,6 +29,7 @@ namespace Schepen_opdracht
         public double cargoWaarde()
         {
             double cargoWaarde = 0;
+            //kan ook foreach(Vloot v in VerzamelingVloten.Values)
             foreach(KeyValuePair<string,Vloot> vloot in VerzamelingVloten)
             {
                 List<Schip> temp = vloot.Value.GeefSchepen();
@@ -69,7 +70,7 @@ namespace Schepen_opdracht
                 {
                     Schip temp = entry.Value.zoekSchip(naamSchip);
                     temp.ToebehorendeVloot.VerwijderSchip(entry.Value.zoekSchip(naamSchip));
-                    temp.ToebehorendeVloot = VerzamelingVloten[naamNieuweVloot];
+                    VerzamelingVloten[naamNieuweVloot].voegSchipToe(temp);
 
                 }
             }
